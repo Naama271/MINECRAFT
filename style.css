@@ -1,0 +1,164 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+}
+
+
+/*
+div {
+    border: 2px solid black;
+}
+
+landing page*/
+.backgrond{
+    background-image: url(images/bg_landingpage-01.svg);
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size:cover;
+    height: 100vh;
+    width: 100VW;
+}
+
+.logo{
+    background-image: url(images/MINECRAFT_LOGO.png);
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size:cover;
+    height: 50px;
+    width: 70VW;
+    margin-bottom: 15px;
+}
+
+.flex_container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+    }
+
+.startbtn{
+    padding: 1px 15px;
+    font-size: larger;
+    margin-top: 15px;
+}
+
+.backgrond h3{
+    text-align: center;
+    color: #C2C2BF;
+}
+
+.hidden {
+    display:block;
+}
+
+
+/*main game*/
+
+.backgrond_game{
+    background-image: url(images/bg_game-02.svg);
+    height: 100vh;
+    width: 100VW;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex_center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tool , .setTool{
+    width: 20px;
+    height: 20px;
+    margin: 0px 5px;
+    background-color: #1D1D1B;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size:cover;
+    border:#1D1D1B 1px solid;  
+    cursor:pointer;
+    margin-bottom: 5px;
+}
+
+.active , .tool:hover , .setTool:hover{
+    border:#C2C2BF 1px solid;   
+} 
+
+.shoval{
+    background-image: url(images/shoval.png);
+}
+
+.axe{
+    background-image: url(images/axe.png);
+}
+
+.pickaxe{
+    background-image: url(images/pickaxe.png);
+}
+
+.world_divs{
+  width: 300px;
+
+  background-color: #89D2F6;
+}
+
+.world_divs div{
+width: 10px;
+height:  10px;
+float: left;
+
+background-color: #89D2F6;
+}
+
+
+    .world_divs div:hover{
+        background-color: rgb(94, 161, 209);
+   
+        border: 0.2px solid white;
+        }
+
+ .ground{
+    background-image: url(images/ground.svg);
+ }       
+
+ .leaves{
+    background-image: url(images/leaves.svg);
+ }       
+
+ .wood{
+    background-image: url(images/wood.svg);
+ }       
+
+ .rock{
+    background-image: url(images/rock.svg);
+ }  
+ 
+ .invetory_container .setTool{
+    width: 15px;
+    height: 15px;
+  
+ }
+
+ .invetory_container p{
+     text-align:center;
+     font-size: 12px;
+     color: #C2C2BF;
+ }
+
+
+ .control{
+    background-color: #1D1D1B; 
+    height: 100vh;
+    border-left:  #C2C2BF 1px solid;
+    border-right:  #C2C2BF 1px solid;
+ }
+
+ .container{
+     display: none;
+ }
+
