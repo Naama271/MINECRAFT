@@ -1,6 +1,10 @@
 let startbtn = document.querySelector(".startbtn");
+let restartbtn = document.querySelector(".restartbtn");
 
 startbtn.addEventListener("click", hide);
+restartbtn.addEventListener("click", function () {
+  location.reload()
+});
 
 function hide() {
   let hiddendiv = document.querySelector(".hidden");
@@ -22,80 +26,86 @@ let worldDiv = document.querySelectorAll(".world_divs div");
 
 let divsArr = Array.from(worldDiv);
 
-restart();
-//console.log(divsArr[2]);
 
-function restart() {
-  for (let i = 480; i < divsArr.length; i++) {
-    div = divsArr[i];
-    div.classList.add("ground");
-  }
 
-  for (let i = 320; i < 480; i += 30) {
-    div = divsArr[i];
-    div.classList.add("wood");
-  }
-
-  for (let i = 460; i < 465; i++) {
-    div = divsArr[i];
-    div.classList.add("rock");
-  }
-
-  for (let i = 431; i < 434; i++) {
-    div = divsArr[i];
-    div.classList.add("rock");
-  }
-  //leaves
-
-  for (let i = 198; i < 300; i += 30) {
-    div = divsArr[i];
-    div.classList.add("leaves");
-  }
-
-  for (let i = 199; i < 300; i += 30) {
-    div = divsArr[i];
-    div.classList.add("leaves");
-  }
-
-  for (let i = 200; i < 300; i += 30) {
-    div = divsArr[i];
-    div.classList.add("leaves");
-  }
-
-  for (let i = 201; i < 300; i += 30) {
-    div = divsArr[i];
-    div.classList.add("leaves");
-  }
-
-  for (let i = 202; i < 300; i += 30) {
-    div = divsArr[i];
-    div.classList.add("leaves");
-  }
+for (let i = 480; i < divsArr.length; i++) {
+  div = divsArr[i];
+  div.classList.add("ground");
 }
-//
+
+for (let i = 320; i < 480; i += 30) {
+  div = divsArr[i];
+  div.classList.add("wood");
+}
+
+for (let i = 460; i < 465; i++) {
+  div = divsArr[i];
+  div.classList.add("rock");
+}
+
+for (let i = 431; i < 434; i++) {
+  div = divsArr[i];
+  div.classList.add("rock");
+}
+//leaves
+
+for (let i = 198; i < 300; i += 30) {
+  div = divsArr[i];
+  div.classList.add("leaves");
+}
+
+for (let i = 199; i < 300; i += 30) {
+  div = divsArr[i];
+  div.classList.add("leaves");
+}
+
+for (let i = 200; i < 300; i += 30) {
+  div = divsArr[i];
+  div.classList.add("leaves");
+}
+
+for (let i = 201; i < 300; i += 30) {
+  div = divsArr[i];
+  div.classList.add("leaves");
+}
+
+for (let i = 202; i < 300; i += 30) {
+  div = divsArr[i];
+  div.classList.add("leaves");
+}
+
+// for (let i = 0 ; i < 4; i ++)  {
+//   for (let x = 202; x <300; x ++ ) {
+//     div = divsArr[x];
+//     div.classList.add("leaves");}
+// }
+let obj = { wood: 0, leaves: 0, ground: 0, rock: 0 };
+
+let leaves = document.querySelector(".invetory_leaves");
+let wood = document.querySelector(".invetory_wood");
+let ground = document.querySelector(".invetory_ground");
+let rock = document.querySelector(".invetory_rock");
 
 let tools = document.querySelectorAll(".tool");
 
-let obj = { wood: 0, leaves: 0, ground: 0, rock: 0 };
-console.log(tools);
-
-tools.forEach((tool) =>
+tools.forEach((tool, index) =>
   tool.addEventListener("click", function () {
+    for (let i = 0; i < alltools.length; i++) {
+      alltools[i].classList.remove("active");
+    }
+    console.log(tools);
+    tool.classList.add("active");
+    // tools.classList.remove("active");
+    console.log(tool);
     removeDiv(tool);
     // setDiv(tool);
   })
 );
 
-let invetoryleaves = document.querySelector(".invetory_leaves");
-let invetoryWood = document.querySelector(".invetory_wood");
-let invetoryGround = document.querySelector(".invetory_ground");
-let invetoryRock = document.querySelector(".invetory_rock");
-
 function removeDiv(tool) {
   //  console.log(tool);
   divsArr.forEach((div, index) => {
     return div.addEventListener("click", function () {
-
       let before = divsArr[index - 1];
       let after = divsArr[index + 1];
       let up = divsArr[index - 30];
@@ -110,104 +120,72 @@ function removeDiv(tool) {
         up.classList.value === "" ||
         down.classList.value === ""
       ) {
-        // obj["PropertyD"] = 4;
-        // console.log(obj);
+        checkRemoveDiv("leaves", "axe");
+        checkRemoveDiv("wood", "axe");
+        checkRemoveDiv("ground", "shoval");
+        checkRemoveDiv("rock", "pickaxe");
 
-        if (
-          div.classList.contains("leaves") &&
-          tool.classList.contains("axe")
-        ) {
-          div.classList.remove("leaves");
+        function checkRemoveDiv(x, y) {
 
-          obj.leaves++;
-          // console.log(obj);
+          if (div.classList.contains(x) && tool.classList.contains(y)) {
+            div.classList.remove(x);
 
-          invetoryleaves.innerHTML = obj.leaves;
+            ++obj[x];
+            // console.log(obj);
 
-        } else if (
-          div.classList.contains("wood") &&
-          tool.classList.contains("axe")
-        ) {
-          div.classList.remove("wood");
-
-          obj.wood++;
-          //  console.log(obj);
-
-          invetoryWood.innerHTML = obj.wood;
-
-        } else if (
-          div.classList.contains("ground") &&
-          tool.classList.contains("shoval")
-        ) {
-          div.classList.remove("ground");
-
-          obj.ground++;
-          //   console.log(obj);
-         
-          invetoryGround.innerHTML = obj.ground;
-
-        } else if (
-          div.classList.contains("rock") &&
-          tool.classList.contains("pickaxe")
-        ) {
-          div.classList.remove("rock");
-
-          obj.rock++;
-          // console.log(obj);
-          
-          invetoryRock.innerHTML = obj.rock;
+            setInvetory();
+          }
         }
       }
     });
   });
 }
 
-
+let alltools = document.querySelectorAll(".control div");
 let setTool = document.querySelectorAll(".setTool");
 
 setTool.forEach((tool) =>
   tool.addEventListener("click", function () {
+    for (let i = 0; i < alltools.length; i++) {
+      alltools[i].classList.remove("active");
+    }
+    tool.classList.add("active");
     setDiv(tool);
-   
   })
 );
 
 function setDiv(tool) {
   //  console.log(tool);
-  divsArr.forEach(div => {
-    return div.addEventListener("click", function () {
-
-      console.log(tool.classList.value);
+  divsArr.forEach((div) => {
+    div.addEventListener("click", function () {
+      //console.log(tool.classList.value);
       // console.log(before, after, up, down);
-      // console.log(before.classList.value==="");
 
-      if (div.classList.value === "") {
-        if (obj.rock > 0 &&  tool.classList.contains("rock")) {
+      //  console.log(tool);
+      checkSetDiv("rock");
+      checkSetDiv("leaves");
+      checkSetDiv("wood");
+      checkSetDiv("ground");
 
-          div.classList.add("rock");
-          obj.rock--;
-         // console.log(obj.rock);
-          invetoryRock.innerHTML = obj.rock;
+      function checkSetDiv(x) {
+        if (div.classList.value === "") {
+          if (obj[x] > 0 && tool.classList.contains(x)) {
+            div.classList.add(x);
+            --obj[x];
 
-        }if (obj.leaves > 0 && tool.classList.contains("leaves")) {
-
-            div.classList.add("leaves");
-            obj.leaves--;
-            
-            invetoryleaves.innerHTML = obj.leaves;
-            
-          } if (obj.wood > 0 && tool.classList.contains("wood")) {
-            obj.wood--;
-            
-            div.classList.add("wood");
-            invetoryWood.innerHTML = obj.wood;
-            
-          }if (obj.ground > 0 && tool.classList.contains("ground")) {
-            obj.ground--;
-            div.classList.add("ground");
-            invetoryGround.innerHTML = obj.ground;
+            setInvetory();
           }
+        }
       }
     });
   });
+}
+
+function setInvetory() {
+  rock.innerHTML = obj.rock;
+  wood.innerHTML = obj.wood;
+  ground.innerHTML = obj.ground;
+  leaves.innerHTML = obj.leaves;
+  //console.log(rock);
+  //console.log(x);
 }

@@ -26,7 +26,7 @@ landing page*/
     background-position: center;
     background-repeat: no-repeat; 
     background-size:cover;
-    height: 50px;
+    height: 50vh;
     width: 70VW;
     margin-bottom: 15px;
 }
@@ -45,7 +45,7 @@ landing page*/
     margin-top: 15px;
 }
 
-.backgrond h3{
+.backgrond h1{
     text-align: center;
     color: #C2C2BF;
 }
@@ -59,7 +59,7 @@ landing page*/
 
 .backgrond_game{
     background-image: url(images/bg_game-02.svg);
-    height: 100vh;
+    
     width: 100VW;
     display: flex;
     align-items: center;
@@ -73,8 +73,8 @@ landing page*/
 }
 
 .tool , .setTool{
-    width: 20px;
-    height: 20px;
+    width: 4vw;
+    height: 4vw;
     margin: 0px 5px;
     background-color: #1D1D1B;
     background-position: center;
@@ -87,6 +87,7 @@ landing page*/
 
 .active , .tool:hover , .setTool:hover{
     border:#C2C2BF 1px solid;   
+
 } 
 
 .shoval{
@@ -102,14 +103,15 @@ landing page*/
 }
 
 .world_divs{
-  width: 300px;
-
+  
+  width: 60vw;
+  height: 80vh;
   background-color: #89D2F6;
 }
 
 .world_divs div{
-width: 10px;
-height:  10px;
+width: calc(100%/30);
+height:calc(100%/20);
 float: left;
 
 background-color: #89D2F6;
@@ -139,8 +141,8 @@ background-color: #89D2F6;
  }  
  
  .invetory_container .setTool{
-    width: 15px;
-    height: 15px;
+
+    margin-bottom: 0px;
   
  }
 
@@ -153,7 +155,7 @@ background-color: #89D2F6;
 
  .control{
     background-color: #1D1D1B; 
-    height: 100vh;
+    height: 100%;
     border-left:  #C2C2BF 1px solid;
     border-right:  #C2C2BF 1px solid;
  }
@@ -162,3 +164,17 @@ background-color: #89D2F6;
      display: none;
  }
 
+.restartbtn{
+    font-size: 11px;
+    margin: 0px 5px;
+    margin-top: 3px;
+}
+
+.restartbtn:hover{
+    background-color: #1D1D1B; 
+    color: #C2C2BF;
+}
+
+.active{
+    background-color: blue; 
+}
